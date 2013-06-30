@@ -22,7 +22,10 @@
 development:
   adapter: postgresql
   host: localhost
-  username: user
-  database: app-dev
+  username: mary
+  database: practice_rails_db
+  encoding: utf8
+  pool: 5
+
 
 
