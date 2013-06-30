@@ -1,31 +1,26 @@
-# common: &common
-#   adapter: postgresql
-#   encoding: unicode
-#   host: localhost
-#   username: nyghtowl
+common: &common
+  adapter: postgresql
+  encoding: utf8
+  pool: 5
+  host: localhost
+  username: mary
 
-# development:
-#   <<: *common
-#   database: myapp_development
+development:
+  <<: *common
+  database: practice_rails_db
+
+test:
+  <<: *common
+  database: practice_rails_test_db
 
 # # Warning: The database defined as "test" will be erased and
 # # re-generated from your development database when you run "rake".
 # # Do not set this db to the same as development or production.
-# test:
-#   <<: *common
-#   database: myapp_test
 
 # production:
 #   <<: *common
 #   database: myapp_production
 
-development:
-  adapter: postgresql
-  host: localhost
-  username: mary
-  database: practice_rails_db
-  encoding: utf8
-  pool: 5
 
 
 
