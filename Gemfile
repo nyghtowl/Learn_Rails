@@ -29,4 +29,5 @@ group :test do
   gem 'guard-spork', '1.2.0'
   gem 'childprocess', '0.3.6'
   gem 'spork', '0.9.2'
+  gem 'factory_girl_rails', '4.1.0'
 end

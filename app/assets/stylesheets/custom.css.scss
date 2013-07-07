@@ -10,6 +10,11 @@ body {
   padding-top: 60px;
 }
 
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
 section {
   overflow: auto;
 }
@@ -45,9 +50,14 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-p {
-  font-size: 1.1em;
-  line-height: 1.7em;
+/* mixins, variables, etc. */
+
+$grayMediumLight: #eaeaea;
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 /* header */
@@ -92,4 +102,14 @@ footer {
       margin-left: 10px;
     }
   }
+}
+
+/* miscellaneous */
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
 }
