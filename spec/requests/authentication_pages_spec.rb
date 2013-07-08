@@ -25,6 +25,7 @@ describe "Authentication" do
 
       before { sign_in user }
 
+      it { should have_link('Users',    href: users_path) }
       it { should have_selector('title', text: user.name) }
       it { should have_link('Profile', href: user_path(user)) }
       it { should have_link('Settings', href: edit_user_path(user))}
@@ -58,7 +59,7 @@ describe "Authentication" do
       describe "in the Users controller" do
 
         describe "visiting the edit page" do
-          before { visit edit_user_path(user) }
+          before { visit users_path }
           it { should have_selector('title', text: 'Sign in') }
         end
 
@@ -66,7 +67,9 @@ describe "Authentication" do
           before { put user_path(user) }
           specify { response.should redirect_to(signin_path) }
         end
+      
       end
+
     end
 
     describe "as wrong user" do

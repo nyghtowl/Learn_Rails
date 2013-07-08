@@ -24,6 +24,10 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def index
+     @users = User.all
+  end
+
   def update
     if @user.update_attributes(params[:user])
       flash[:success] = "Profile updated"
