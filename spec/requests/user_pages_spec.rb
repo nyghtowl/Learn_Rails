@@ -30,6 +30,13 @@ describe "User pages" do
         it "should not create a user" do
           expect { click_button submit }.not_to change(User, :count)
         end
+
+        describe "after submission" do
+          before { click_button submit }
+
+          it { should have_selector('title', text: 'Sign up') }
+          it { should have_content('error') }
+        end
       end
 
       describe "with valid information" do
@@ -60,7 +67,6 @@ describe "User pages" do
         end
       end
   end
-
   
   describe "edit" do
     let(:user) { FactoryGirl.create(:user) }
@@ -102,7 +108,7 @@ describe "User pages" do
 
   describe "index" do
     let(:user) { FactoryGirl.create(:user) }
-  
+
     before(:each) do
       sign_in user
       visit users_path
@@ -110,7 +116,6 @@ describe "User pages" do
 
     it { should have_selector('title', text: 'All users') }
     it { should have_selector('h1',    text: 'All users') }
-
 
     describe "pagination" do
 

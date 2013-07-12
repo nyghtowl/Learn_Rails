@@ -20,11 +20,6 @@ module SessionsHelper
     user == current_user
   end
 
-  def sign_out
-    self.current_user = nil
-    cookies.delete(:remember_token)
-  end
-
   def redirect_back_or(default)
     redirect_to(session[:return_to] || default)
     session.delete(:return_to)
@@ -34,4 +29,9 @@ module SessionsHelper
     session[:return_to] = request.url
   end
 
+  def sign_out
+    self.current_user = nil
+    cookies.delete(:remember_token)
+  end
+  
 end
